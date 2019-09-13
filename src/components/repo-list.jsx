@@ -19,7 +19,8 @@ class RepoList extends Component {
   }
   getCommitList(item) {
     const commitsUrl = item['commits_url'] || '';
-
+    console.log(item);
+    console.log(commitsUrl);
     const end = commitsUrl.indexOf('{/sha}') || 0;
     let url = commitsUrl.slice(0, end);
     const time = new Date(Date.now() - 86400000).toJSON();
@@ -67,7 +68,7 @@ class RepoList extends Component {
                     created: <span className="text-content">{item['created_at'].slice(0, 10)}</span>
                   </div>
                   <div className="link item-text">
-                    <span className="text-content link-content">{item['html_url']}</span>
+                    url: <span className="text-content link-content">{item['html_url']}</span>
                   </div>
                 </div>
               ))
